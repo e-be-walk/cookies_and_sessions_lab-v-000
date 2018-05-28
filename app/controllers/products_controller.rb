@@ -1,12 +1,11 @@
 class ProductsController < ApplicationController
-  helper_method :cart 
+  helper_method :cart
   
   def index
   end
 
   def add
-    @item = Item.find(params[:id])
-
-    cart << @item.id
-  end 
+    cart << params[:product]
+    redirect_to action: "index"
+  end
 end
